@@ -57,7 +57,6 @@ app=Flask(__name__)
 obj1=Blockchain()
         
 @app.route('/mine',methods=['GET','POST'])
-
 def mine():
      Pblock=obj1.lastBlock()
      previous_proof=Pblock['proof']
@@ -75,5 +74,7 @@ def chain():
     res=obj1.chain
     return jsonify(res)
 
-
-app.run(host='0.0.0.0', port=5000) 
+if __name__=="__main__":
+    app.run(debug=True)
+# if __name__ == "main":
+#     app.run(port=8000) 
